@@ -1,7 +1,7 @@
 var fromTo = [];
 //var stops = [];
 var buttonClicks = 0;
-
+var stuff;
 
       $("button.btn.btn-default").click(function(e) {
 
@@ -17,11 +17,15 @@ var buttonClicks = 0;
 
             fromTo.push({"to": $("input.form-control").val() });
           param1 = fromTo[0];
-          param2 = fromTo[1]          
+          param2 = fromTo[1];
+          datastring = JSON.stringify({param1, param2});         
             $.ajax({
                 type : 'POST',
                 url : "/fromTo",
-                data: {param1, param2}
+                data: {param1, param2},
+                success : function(data, textStatus, jqXHR) {
+                  $('body').load(data);
+                }
             });
 
       }

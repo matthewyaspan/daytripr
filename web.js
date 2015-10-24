@@ -41,14 +41,21 @@ app.get('/', function(req, res) {
          res.render('index.html');
 });
 
+app.get('/withMap', function(req, res) {
+         res.render('withMap.html');
+});
+
+
 app.post("/fromTo", function(req, res) {
-   console.log(req.body);
-  /* var from = req.body.from;
-   var to = req.body.to; */
+  console.log(req.body);
+  var from = req.body.from;
+  var to = req.body.to; 
     //res.render("test.html");
-   res.render('withMap.html', {locals: { data : {from: from, to: to} } }); 
+   res.redirect('/withMap');
+   //res.json({ from: from, to: to });
 
  });
+
 
 
 

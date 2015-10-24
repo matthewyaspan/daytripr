@@ -1,1 +1,1 @@
-var local_data = JSON.stringify(data);
+var local_data = !{JSON.stringify(data)};
