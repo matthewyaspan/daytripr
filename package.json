@@ -1,0 +1,15 @@
+{
+  "name": "dayTripr",
+  "version" : "0.0.1",
+  "dependencies": {
+
+     "express": "latest"
+     "ejs": "latest"
+
+  },
+  "repository": {
+     "type": "git",
+     "url": "https//github.com/matthewyaspan/dayTripr.git"
+  }
+
+}
