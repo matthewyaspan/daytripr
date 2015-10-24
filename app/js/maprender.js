@@ -91,18 +91,16 @@ startLng = point['start_location'].lng();
 
 var pinLat = startLat + (endLat - startLat) * rat;
 var pinLng = startLng + (endLng - startLng) * rat;
-var myLatLng = {
-    lat: pinLat,
-    lng: pinLng
-};
 
-
-
-var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
+var myRequest = new XMLHttpRequest();
+myRequest.open("get", "http://api.tripadvisor.com/api/partner/2.0/map/" + pinLat + "," + pinLng + "/restaurants?key=<CC3B76F2F0BE44469D6610344CC8E104>", "true");
+myRequest.send();
+myRequest.onreadystatechange = function() {
+        if (myRequest.readyState == 4 && myRequest.status == 200) {
+            text = JSON.parse(myRequest.responseText);
+            console.log(text);
+            }
+        }
 
 
 });
