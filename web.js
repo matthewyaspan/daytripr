@@ -2,6 +2,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 
+var request = require("request");
+
+
 
 /* var mongoUri = process.env.MONGOLAB_URI || proces.env.MONGOHQ_URL ||
                   'mongodb://localhost:27017/pickitup';
@@ -41,12 +44,25 @@ app.get('/', function(req, res) {
          res.render('index.html');
 });
 
+app.get('/tripadvisor', function(req, res) {
+   pinLat = req.query.pinLat;
+   pinLng = req.query.pinLng;
 
+  toSend = "https://api.tripadvisor.com/api/partner/2.0/map/" + pinLat + ',' +
+            pinLng + "/restaurants?key=CC3B76F2F0BE44469D6610344CC8E104";
+console.log(toSend);
+  request(toSend, function(error, response, body) {
+	console.log(body);
+	if (!error && response.statusCode == 200) {
+		res.send(body);
+	}
+   });
+           
+});
 
 app.post("/fromTo", function(req, res) {
 
   res.render("withMap.html");
-  res.json({from, to});
 
  });
 

@@ -5,8 +5,8 @@
 
      "express": "latest",
      "ejs": "latest",
-     "body-parser": "latest"
-
+     "body-parser": "latest",
+     "request": "latest"
   },
   "repository": {
      "type": "git",

@@ -1,5 +1,5 @@
 var startTime = new Date();
-
+var restos;
 var coords = new google.maps.LatLng(38,-100);
 var mapOptions =  {
   zoom: 4,
@@ -91,16 +91,40 @@ startLng = point['start_location'].lng();
 
 var pinLat = startLat + (endLat - startLat) * rat;
 var pinLng = startLng + (endLng - startLng) * rat;
+ 
+//var myRequest = new XMLHttpRequest();
+$.ajax({
+    //type="GET",
+    url:"/tripadvisor",
+    data: {pinLat, pinLng},
+    success : function(data, textStatus, jqXHR) {
+        restos = JSON.parse(data);
+        var restaurant = restos['data'][0];
+        console.log(restaurant);
+        restLat = restaurant['latitude'];
+        restLng = restaurant['longitude'];
+        restName = restaurant['name'];
+        restRating = restaurant['rating'];
 
-var myRequest = new XMLHttpRequest();
-myRequest.open("get", "https://api.tripadvisor.com/api/partner/2.0/map/" + pinLat + "," + pinLng + "/restaurants?key=<CC3B76F2F0BE44469D6610344CC8E104>", "true");
-myRequest.send();
+        var restP = new google.maps.LatLng(restLat, restLng);
+        marker = new google.maps.Marker({
+            position: restP,
+            title: "Name: " + restName + "\nRating: " + restRating
+        });
+        marker.setMap(map);
+
+    }
+});
+
+    
+    //"https://api.tripadvisor.com/api/partner/2.0/map/" + pinLat + "," + pinLng + "/restaurants?key=<CC3B76F2F0BE44469D6610344CC8E104>", "true");
+/*myRequest.send();
 myRequest.onreadystatechange = function() {
         if (myRequest.readyState == 4 && myRequest.status == 200) {
             text = JSON.parse(myRequest.responseText);
             console.log(text);
             }
-        }
+        } */
 
 
 });
