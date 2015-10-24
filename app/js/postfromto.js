@@ -1,23 +1,26 @@
-var fromTo = [];
+
 //var stops = [];
 var buttonClicks = 0;
 var stuff;
 
       $("button.btn.btn-default").click(function(e) {
-
+      var fT = [];
    if ($("#input").val() != "") {
 
         buttonClicks = buttonClicks + 1;
         if (buttonClicks == 1) {
  
-            fromTo.push( $("input.form-control").val() );
-        $("label.subtitle.space-right").text("where are you coming from?");
+          fT.push( $("input.form-control").val() );
+
+          $("label.subtitle.space-right").fadeOut(500, function() {
+            $("label.subtitle.space-right").text("where are you coming from?").fadeIn(500);
+          });
 
         } else if (buttonClicks == 2) {
 
-            fromTo.push( $("input.form-control").val() );
-          from = fromTo[0];
-          to = fromTo[1];
+          fT.push( $("input.form-control").val() );
+          from = fT[0];
+          to = fT[1];
           $('body').load()
             $.ajax({
                 type : 'POST',
