@@ -1,4 +1,4 @@
-var express = require('express");
+var express = require("express");
 var app = express();
 
 
@@ -29,7 +29,7 @@ app.all('*', function(req,res,next) {
 
 
 app.use(express.static('app'));
-app.set('views'), (__dirname, 'app/views'));
+app.set('views', (__dirname, 'app/views'));
 app.engine('html', require('ejs').renderFile);
 
 app.set('view engine', 'ejs');
@@ -41,11 +41,14 @@ app.get('/', function(req, res) {
 });
 
 
+
+
+
 var port = Number(process.env.PORT || 5000);
 
 
 
-app.list(port, function() {
+app.listen(port, function() {
 
   var t = 1;
 
