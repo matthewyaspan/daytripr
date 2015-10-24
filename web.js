@@ -1,4 +1,5 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var app = express();
 
 
@@ -29,6 +30,7 @@ app.all('*', function(req,res,next) {
 
 
 app.use(express.static('app'));
+app.use(bodyParser.urlencoded({extended:true }));
 app.set('views', (__dirname, 'app/views'));
 app.engine('html', require('ejs').renderFile);
 
@@ -40,11 +42,12 @@ app.get('/', function(req, res) {
 });
 
 app.post("/fromTo", function(req, res) {
-   var from = req.body.from;
-   var to = req.body.to;
+   console.log(req.body);
+  /* var from = req.body.from;
+   var to = req.body.to; */
+    //res.render("test.html");
+   res.render('test.html', {locals: { data : {from: from, to: to} } }); 
 
-   res.render('withMap.html', {locals: { data : {from: from, to: to} } });
-   
  });
 
 
