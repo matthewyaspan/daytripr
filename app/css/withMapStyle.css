@@ -1,3 +1,11 @@
+.navbar-brand{
+    padding-left: 50px;
+}
+
+.navbar .navbar-brand {
+    color: white;
+}
+
 .little-space {
     margin-top:25px;
 }
@@ -15,13 +23,20 @@ h1, h2, h3 {
 }
 
 body {
+    padding-top: 51px;
     font-family: 'Satisfy', cursive;
-    background-color:#383838;
+    background: #383838;
     color: white;
+}
+
+.no-margin {
+    margin: 0;
+
 }
 
 .title {
     font-family: 'Oswald', sans-serif;
+    font-size: 22px;
 }
 
 .subtitle {
@@ -36,5 +51,10 @@ h1 {
     font-size: 24px;
     position: fixed; 
     bottom: 100px;
-    left: 140px;
+    left: 95px;
+}
+
+.btn-yellow:hover{
+    transition: background-color .7s ease;
+    background-color: #ffcc00; 
 }

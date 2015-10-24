@@ -16,6 +16,7 @@ h1, h2, h3 {
 }
 
 body {
+    padding-top: 70px;
     font-family: 'Satisfy', cursive;
     background: url("../img/asphalt.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -25,11 +26,18 @@ body {
     color: white;
 }
 
+.center {
+    margin: 0 auto;
+}
 
 .subtitle {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 h1 {
-    font-size: 56px;
+    font-size: 96px;
+}
+
+h3 {
+    font-size: 28px;
 }
