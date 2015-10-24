@@ -46,7 +46,7 @@ app.post("/fromTo", function(req, res) {
   /* var from = req.body.from;
    var to = req.body.to; */
     //res.render("test.html");
-   res.render('test.html', {locals: { data : {from: from, to: to} } }); 
+   res.render('withMap.html', {locals: { data : {from: from, to: to} } }); 
 
  });
 
