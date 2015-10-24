@@ -37,8 +37,15 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
          res.render('index.html');
-
 });
+
+app.post("/fromTo", function(req, res) {
+   var from = req.body.from;
+   var to = req.body.to;
+
+   res.render('withMap.html', {locals: { data : {from: from, to: to} } });
+   
+ });
 
 
 
