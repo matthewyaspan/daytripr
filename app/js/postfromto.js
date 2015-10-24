@@ -10,21 +10,23 @@ var stuff;
         buttonClicks = buttonClicks + 1;
         if (buttonClicks == 1) {
  
-            fromTo.push({"from": $("input.form-control").val() });
+            fromTo.push( $("input.form-control").val() );
         $("label.subtitle.space-right").text("where are you coming from?");
 
         } else if (buttonClicks == 2) {
 
-            fromTo.push({"to": $("input.form-control").val() });
-          param1 = fromTo[0];
-          param2 = fromTo[1];
-          datastring = JSON.stringify({param1, param2});         
+            fromTo.push( $("input.form-control").val() );
+          from = fromTo[0];
+          to = fromTo[1];
+          $('body').load()
             $.ajax({
                 type : 'POST',
                 url : "/fromTo",
-                data: {param1, param2},
+                data: {from, to},
+                dataType : 'html',
                 success : function(data, textStatus, jqXHR) {
-                  $('body').load(data);
+                  console.log(data);
+                  $('body').html(data);
                 }
             });
 
