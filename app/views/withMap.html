@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +18,7 @@
     <link href='https://fonts.googleapis.com/css?family=Satisfy|Oswald' rel='stylesheet' type='text/css'>
 
     <!-- Custom CSS -->
-    <link href="../css/indexStyle.css" rel="stylesheet">
+    <link href="../css/withMapStyle.css" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
@@ -27,7 +26,7 @@
 
     <style>
     body {
-        padding-top: 70px;
+        padding-top: 51px;
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
     </style>
@@ -42,35 +41,52 @@
 <head>
 
 <body>
+    <!-- Nav Bar -->
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand title" href="#">Daytripr</a>
+        </div>
+      </div>
+    </nav>
+
     <!-- Page Content -->
     <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Daytripr</h1>
-                <h3 class="little-space">a better road trip.</h3>
-                <form class="form-inline big-space">
-                    <div class="form-group">
-                        <label class="subtitle space-right">where are you going?</label>
-                        <input class="form-control space-right" type="text" name="continue">
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </button>
-                    </div>
-                </form>
+        <div class="col-lg-3">
+            <div class="col-lg-12 little-space">
+                <p class="subtitle">what do you need?</p>
             </div>
+            <div class="form-group col-lg-5">
+                <input id="location" class="form-control input-group-lg reg_name" type="text" name="pitstop"/>
+            </div>
+            <div class="form-group col-lg-2">
+                <label class="subtitle">at</label>
+            </div>
+            <div class="form-group col-lg-5">
+                <input id="time" class="form-control input-group-lg reg_name" type="text" name="stoptime"/>
+            </div>
+            <div class="col-lg-12">
+                <p class="subtitle">need more?</p>
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <!--MAP hooray-->
+            <img src="../img/map.jpg" alt="road" height="600" width="900">
         </div>
     </div>
     <!-- /.container -->
-
+    <div class="col-lg-12">
+            <button type="button" class="btn btn-default btn-fixed">let's go!</button>
+     </div>
     <!-- jQuery Version 1.11.1 -->
     <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-
-    <script src="../js/postfromto.js"></script>
-
 
 </body>
 
