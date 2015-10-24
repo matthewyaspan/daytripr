@@ -16,12 +16,12 @@ h1, h2, h3 {
 
 body {
     font-family: 'Satisfy', cursive;
-    background: url("../img/asphalt.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-color:#383838;
     color: white;
+}
+
+.title {
+    font-family: 'Oswald', sans-serif;
 }
 
 .subtitle {
@@ -30,4 +30,11 @@ body {
 
 h1 {
     font-size: 56px;
+}
+
+.btn-fixed {
+    font-size: 24px;
+    position: fixed; 
+    bottom: 100px;
+    left: 140px;
 }
