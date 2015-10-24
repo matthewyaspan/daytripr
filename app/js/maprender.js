@@ -2,24 +2,29 @@ var fromTo = [];
 //var stops = [];
 var buttonClicks = 0;
 
-$("btn btn-default").click(function(e) {
-   if ($("#label").val() != "") {
+$("button.btn.btn-default").click(function(e) {
+   if ($("#input").val() != "") {
+
    		buttonClicks = buttonClicks + 1;
    		if (buttonClicks == 1) {
  
-     		$("#label").val("Where are you going?");
-     		fromTo.push({"from": $("form-control").val() });
-    
-   		} else if (buttonclicks == 2) {
+     		fromTo.push({"from": $("input.form-control").val() });
+        $("label.subtitle.space-right").text("where are you coming from?");
 
-   	    	$("#label").val("Where are you coming?");
-   	    	fromTo.push({"to": $("form-control").val() });
+   		} else if (buttonClicks == 2) {
+
+   	    	fromTo.push({"to": $("input.form-control").val() });
    	    	$.ajax({
    	    		type : 'POST',
    	    		url : "/fromTo",
    	    		dataType: 'json',
    	    		data: fromTo
    	    	});
+
+      }
+
+          $("input.form-control").val(''); 
+    }
    	     	// if valid input, render the map
    	     	// potentialy some sort of animation to make the transition smooth
    		/*} else if (buttonClicks == 3) {
@@ -35,7 +40,7 @@ $("btn btn-default").click(function(e) {
 
    	} */
 
-   	$("form-control").val(''); 
+
 
    
 
